@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agenda de Nuestra Boda J&K</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <div class="brand">
+      <div class="brand-badge">J&K</div>
+      <div>
+        <h1>Agenda de Nuestra Boda J&K</h1>
+        <p>Invitados • Checklist • Presupuesto</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="invitados.html">Invitados</a>
+      <a href="checklist.html">Checklist</a>
+      <a href="presupuesto.html">Presupuesto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="panel" style="margin-top:8px">
+    <div class="panel-body">
+      <div class="cover">
+        <div>
+          <div class="hero" style="box-shadow:none;border:none;padding:0;background:none">
+            <h2>¡Nuestra historia comienza aquí! ✨</h2>
+            <p>
+              Esta agenda digital es para organizar nuestra boda: control de invitados,
+              checklist por categorías y presupuesto con sumatoria automática.
+            </p>
+          </div>
+          <div class="btns" style="margin-top:14px">
+            <a class="badge" href="invitados.html"><span class="dot ok"></span> Ir a Invitados</a>
+            <a class="badge" href="checklist.html"><span class="dot warn"></span> Ir a Checklist</a>
+            <a class="badge" href="presupuesto.html"><span class="dot orange"></span> Ir a Presupuesto</a>
+          </div>
+          <p class="small" style="margin-top:14px">💡 Dios Con Nosotros .</p>
+        </div>
+        <div class="cover-photo">
+          <img src="img/Yeees.jpg" alt="Foto de los novios" onerror="this.remove();document.getElementById('ph').style.display='block'" />
+          <div class="placeholder" id="ph" style="display:none"><b>Portada</b><br/>Coloca tu foto en: <code>img/Yeees.jpg</code></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">Portada • Agenda de Nuestra Boda J&K • © <span id="y"></span></div>
+</footer>
+<div id="toast" class="toast"></div>
+<script src="js/common.js"></script>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>

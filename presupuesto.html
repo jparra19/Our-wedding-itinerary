@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Presupuesto • Agenda de Nuestra Boda J&K</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <div class="brand"><div class="brand-badge">J&K</div>
+      <div><h1>Agenda de Nuestra Boda J&K</h1><p>Control de presupuesto.</p></div>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="invitados.html">Invitados</a>
+      <a href="checklist.html">Checklist</a>
+      <a href="presupuesto.html">Presupuesto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h2>Presupuesto</h2>
+    <p>Agrega detalles como <b>DJ 100</b>, <b>Decoración 400</b>… y el total se suma automáticamente.</p>
+  </section>
+
+  <div class="grid cols-2" style="margin-top:16px">
+    <section class="panel">
+      <div class="panel-header"><h3>Configurar y agregar gasto</h3></div>
+      <div class="panel-body">
+        <div class="form" style="margin-bottom:14px">
+          <div class="row cols-2">
+            <div class="field"><label>Presupuesto total (opcional)</label><input id="budgetTotal" type="number" min="0" step="0.01" placeholder="Ej: 5000" /></div>
+            <div class="field"><label>Moneda</label><select id="currency"><option value="DOP">DOP</option><option value="USD">USD</option><option value="EUR">EUR</option></select></div>
+          </div>
+          <div class="btns"><button type="button" class="secondary" id="btnSaveBudget">Guardar configuración</button></div>
+        </div>
+
+        <form id="expenseForm" class="form">
+          <div class="row cols-3">
+            <div class="field"><label>Concepto</label><input id="eConcept" required placeholder="Ej: DJ" /></div>
+            <div class="field"><label>Categoría (opcional)</label><input id="eCat" placeholder="Ej: Música" /></div>
+            <div class="field"><label>Monto</label><input id="eAmount" type="number" min="0" step="0.01" required placeholder="Ej: 100" /></div>
+          </div>
+          <div class="field"><label>Nota (opcional)</label><input id="eNote" placeholder="Ej: Incluye sonido" /></div>
+          <div class="btns"><button type="submit" id="btnExpenseSave">Agregar</button><button type="button" class="secondary" id="btnExpenseClear">Limpiar</button></div>
+          <input type="hidden" id="eId" />
+        </form>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header"><h3>Resumen</h3></div>
+      <div class="panel-body">
+        <div id="bSummary" class="cards"></div>
+        <div style="margin-top:12px">
+          <div class="small" id="bMsg"></div>
+          <div class="progress"><div id="bProgress"></div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel" style="margin-top:16px">
+    <div class="panel-header">
+      <h3>Detalle de gastos</h3>
+      <div class="btns"><button type="button" class="secondary" id="btnBudgetExport">Exportar CSV</button><button type="button" class="danger" id="btnBudgetReset">Borrar todo</button></div>
+    </div>
+    <div class="panel-body">
+      <div class="row cols-2">
+        <div class="field"><label>Buscar</label><input id="bSearch" placeholder="Concepto, categoría, nota..." /></div>
+        <div class="field"><label>Ordenar</label>
+          <select id="bSort"><option value="recent">Más reciente</option><option value="amount_desc">Monto ↓</option><option value="amount_asc">Monto ↑</option><option value="concept">Concepto A–Z</option></select>
+        </div>
+      </div>
+      <div class="table-wrap" style="margin-top:12px">
+        <table>
+          <thead><tr><th>Concepto</th><th>Categoría</th><th>Monto</th><th>Nota</th><th>Acciones</th></tr></thead>
+          <tbody id="bTbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="container">Presupuesto • Agenda de Nuestra Boda J&K</div></footer>
+<div id="toast" class="toast"></div>
+<script src="js/common.js"></script>
+<script src="js/presupuesto.js"></script>
+</body>
+</html>

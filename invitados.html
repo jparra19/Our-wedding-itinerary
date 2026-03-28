@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitados • Agenda de Nuestra Boda J&K</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <div class="brand"><div class="brand-badge">J&K</div>
+      <div><h1>Agenda de Nuestra Boda J&K</h1><p>Registro de invitados + semáforo.</p></div>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="invitados.html">Invitados</a>
+      <a href="checklist.html">Checklist</a>
+      <a href="presupuesto.html">Presupuesto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h2>Panel de Invitados</h2>
+    <p>Registra <b>nombre</b>, <b>categoría</b> y <b>cantidad</b>. Marca <b>Asistió</b> el día del evento.</p>
+  </section>
+
+  <div class="grid cols-2" style="margin-top:16px">
+    <section class="panel">
+      <div class="panel-header">
+        <h3>Agregar invitado / grupo</h3>
+        <div class="badge"><span class="dot" id="dotCupo"></span><span id="cupoText">0 / 200</span></div>
+      </div>
+      <div class="panel-body">
+        <form id="guestForm" class="form">
+          <div class="row cols-3">
+            <div class="field"><label>Nombre / Grupo</label><input id="gName" required placeholder="Ej: Familia Pérez" /></div>
+            <div class="field"><label>Categoría</label><select id="gCategory" required></select></div>
+            <div class="field"><label>Cantidad</label><input id="gQty" type="number" min="1" step="1" value="1" required /></div>
+          </div>
+          <div class="row cols-2">
+            <div class="field"><label>Nota (opcional)</label><input id="gNote" placeholder="Ej: confirmar niños, alergias..." /></div>
+            <div class="field"><label>Estado</label>
+              <select id="gStatus"><option value="pendiente">Pendiente</option><option value="confirmado">Confirmado</option></select>
+            </div>
+          </div>
+          <div class="btns"><button type="submit" id="btnSave">Guardar</button><button type="button" class="secondary" id="btnClear">Limpiar</button></div>
+          <input type="hidden" id="gId" />
+        </form>
+
+        <div style="margin-top:14px">
+          <div class="traffic">
+            <div class="light" id="light"></div>
+            <div style="flex:1">
+              <div class="small" id="trafficMsg"></div>
+              <div class="progress"><div id="progressFill"></div></div>
+              <div class="small" id="trafficLegend" style="margin-top:6px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header"><h3>Totales por categoría</h3><span class="small">Se calcula por cantidad</span></div>
+      <div class="panel-body"><div id="cards" class="cards"></div></div>
+    </section>
+  </div>
+
+  <section class="panel" style="margin-top:16px">
+    <div class="panel-header">
+      <h3>Resultados</h3>
+      <div class="btns">
+        <button type="button" class="secondary" id="btnExport">Exportar CSV</button>
+        <button type="button" class="danger" id="btnReset">Borrar todo</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row cols-3">
+        <div class="field"><label>Buscar</label><input id="q" placeholder="Nombre, categoría, nota..." /></div>
+        <div class="field"><label>Filtrar categoría</label><select id="filterCategory"></select></div>
+        <div class="field"><label>Filtrar estado</label>
+          <select id="filterStatus"><option value="">Todas</option><option value="pendiente">Pendiente</option><option value="confirmado">Confirmado</option><option value="asistio">Asistió</option></select>
+        </div>
+      </div>
+      <div class="table-wrap" style="margin-top:12px">
+        <table>
+          <thead><tr><th>Nombre / Grupo</th><th>Categoría</th><th>Cantidad</th><th>Estado</th><th>Nota</th><th>Acciones</th></tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="container">Invitados • Agenda de Nuestra Boda J&K</div></footer>
+<div id="toast" class="toast"></div>
+<script src="js/common.js"></script>
+<script src="js/invitados.js"></script>
+</body>
+</html>

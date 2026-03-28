@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checklist • Agenda de Nuestra Boda J&K</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <div class="brand"><div class="brand-badge">J&K</div>
+      <div><h1>Agenda de Nuestra Boda J&K</h1><p>Checklist por categorías + notas.</p></div>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="invitados.html">Invitados</a>
+      <a href="checklist.html">Checklist</a>
+      <a href="presupuesto.html">Presupuesto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h2>Checklist</h2>
+    <p>Click en una <b>categoría</b> para desplegar solo lo pertinente (la página se ve corta y clara).</p>
+  </section>
+
+  <div class="grid cols-2" style="margin-top:16px">
+    <section class="panel">
+      <div class="panel-header"><h3>Categorías</h3><span class="small">Filtrar / desplegar</span></div>
+      <div class="panel-body">
+        <div class="chip-list" id="chipList"></div>
+        <hr style="border:none;border-top:1px solid var(--line); margin:14px 0" />
+        <div class="form">
+          <div class="field"><label>Buscar dentro de la categoría</label><input id="cSearch" placeholder="Ej: iglesia, DJ, pastel..." /></div>
+          <div class="field"><label>Estado</label>
+            <select id="cStatus">
+              <option value="">Todos</option>
+              <option value="no_iniciado">⬜ No iniciado</option>
+              <option value="en_proceso">🔄 En proceso</option>
+              <option value="en_espera">⏳ En espera</option>
+              <option value="listo">✅ Listo / Cerrado</option>
+              <option value="cancelado">❌ Cancelado / No aplica</option>
+            </select>
+          </div>
+          <div class="btns"><button type="button" class="secondary" id="btnChecklistReset">Restablecer checklist</button></div>
+          <p class="small">💾 Guardado automático en tu navegador.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header"><h3 id="cTitle">Tareas</h3><span class="small" id="cCount"></span></div>
+      <div class="panel-body" id="cList"></div>
+    </section>
+  </div>
+
+  <section class="panel" style="margin-top:16px">
+    <div class="panel-header"><h3>Resumen</h3></div>
+    <div class="panel-body"><div id="cSummary" class="cards"></div></div>
+  </section>
+</main>
+
+<footer><div class="container">Checklist • Agenda de Nuestra Boda J&K</div></footer>
+<div id="toast" class="toast"></div>
+<script src="js/common.js"></script>
+<script src="js/checklist.js"></script>
+</body>
+</html>
